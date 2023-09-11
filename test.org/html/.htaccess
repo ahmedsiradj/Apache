@@ -1,0 +1,59 @@
+
+
+RewriteEngine On
+RewriteBase /
+
+## Make it possible to access to the page without extension
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteRule ^([^.]+)$ $1.php [NC,L]
+
+
+## To force remove php extension
+#RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+#RewriteRule ^ /%1 [R=301,NE,L]
+
+
+
+ErrorDocument 404 /errors/404.php
+
+
+#RewriteCond %{SCRIPT_FILENAME} !-f
+#RewriteCond %{SCRIPT_FILENAME} !-d
+#RewriteRule . index.php [NC,L]
+
+# Set time zone
+
+SetEnv TZ America/Los_Angeles
+
+
+## Block
+## "L" mean "last"
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} siradj.com [NC]
+RewriteRule .* - [F,L]
+
+
+## block request from specific User-Agent
+# "F" --> forbidden
+#RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} (siradj|Mozilla|Botname3) [NC]
+RewriteRule (.*) - [F,L]
+
+
+## Block "HEAD" request method
+#RewriteCond %{REQUEST_METHOD} (POST|HEAD) 
+#RewriteRule .* - [F,L]
+
+<IfModule mod_php.c>
+    AddType application/x-httpd-php .php
+</IfModule>
+
+
+#RewriteRule [a-z]+ https://www.$0.com [L]
+
+
+
+
+
+
+

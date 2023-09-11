@@ -1,0 +1,15 @@
+
+RewriteEngine On
+RewriteBase /devs/
+
+## To Protect the current directory
+AuthName "Access to Admin File"
+AuthType Basic
+AuthUserFile /var/www/test.org/html/devs/.htpasswd
+Require valid-user
+
+## Protect A File
+<Files db.txt>
+Require valid-user
+</Files>
+

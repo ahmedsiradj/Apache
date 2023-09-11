@@ -1,0 +1,10 @@
+
+RewriteEngine On
+RewriteBase /conf/
+
+Options All +Indexes
+
+
+# Disable listing a specific type of files
+IndexIgnore *.zip *.bak
+

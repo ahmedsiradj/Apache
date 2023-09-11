@@ -1,0 +1,9 @@
+
+RewriteEngine On
+RewriteBase /images/
+
+
+<FilesMatch "\.(jpg|jpeg|png|gif|bmp|ico|svg|webp)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>

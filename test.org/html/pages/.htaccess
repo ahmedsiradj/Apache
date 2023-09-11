@@ -1,0 +1,13 @@
+
+
+RewriteEngine On
+RewriteBase /pages/
+
+Options All +Indexes
+
+Redirect 301 /pages/page3.php /pages/page4.php
+
+
+<IfModule mod_php.c>
+    AddType application/x-httpd-php .php
+</IfModule>
